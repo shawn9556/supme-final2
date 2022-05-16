@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href= "{% static 'survey/css/style.css' %}">
+    <title>supme survey</title>
+</head>
+<body id="page-top" background="{% static 'survey/assets/supme-space.jpg' %}">
+  <div class="wrapper">
+        <div class="profile-card js-profile-card">
+          <div class="profile-card__img">
+            <img src="" alt="profile card">
+          </div>
+      
+          <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name">첫번째 질문</div>
+            <div class="profile-card__txt"><strong>일론 머스크의 공짜 우주여행에 당첨되었다.<br></strong></div>
+            <div class="profile-card-loc">
+              <span class="profile-card-loc__icon">
+                <!-- <svg class="icon">
+                  <use xlink:href="#icon-location"></use>
+                </svg> -->
+              </span>
+      
+              <span class="profile-card-loc__txt">
+                당신의 선택지는?
+              </span>
+            </div>
+
+              <div class="profile-card-ctr">
+                <form action="{% url 'survey:survey_q8' %}" method="post">
+                  {% csrf_token %}
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="moon" name="where" value="moon">달</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="mars" name="where" value="mars">화성</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="blackhole" name="where" value="black_hole">우주 정거장</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="space_station" name="where" value="space_station">블랙홀</button>
+                </form>
+              </div>
+
+            <script>
+              function forceSubmit(){
+                  document.forms[0].submit();
+              }
+            </script>
+          </div>      
+        </div>
+      </div>
+
+      <script src="/static/survey/js/survey.js"></script>
+
+</body>
+</html>

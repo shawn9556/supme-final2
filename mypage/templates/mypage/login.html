@@ -1,0 +1,46 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form method="post" action="{% url 'mypage:login' %}">
+        {% csrf_token %}
+        <div>
+            <label for="username"></label>
+            <input id="username" type="text" name="username" placeholder="아이디">
+        </div>
+        <div>
+            <label for="password"></label>
+            <input id="password" type="password" name="password" placeholder="비밀번호">
+        </div>
+        <div>
+            <button type="submit">로그인</button>
+        </div>
+    </form>
+        <!-- social login  -->
+        <div class="d-flex justify-content-between">
+            <div class="mb-3">
+                <form action="{% provider_login_url 'naver' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="네이버">
+                </form>
+            </div>
+            <div class="mb-3">
+                <form action="{% provider_login_url 'kakao' %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="카카오">
+                </form>
+            </div>
+            <div class="mb-3">
+                <form action="/mypage/signup/" method="get">
+                    <input type="submit" value="회원가입" />
+                </form>
+            </div>
+        </div>
+</body>
+</html>

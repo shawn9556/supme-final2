@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Read </title>
+</head>
+<body>
+    <h1>{{post.id}}</h1>
+    {% if post.image_head %}
+    <div style="width: 250px;">
+        <img src="{{ post.image_head.url }}" alt="post image_head" style="width: 100%;">
+    </div>
+    {% endif %}
+
+    <h2>{{post.place_name}}</h2>
+    <h3>{{post.sub_title}}</h3>
+    <h4>{{post.script}}</h4>
+    <p>{{post.traffic}}</p>
+    <p>{{post.accomdation}}</p>
+    <p>{{post.food}}</p>
+    <p>{{post.activity}}</p>
+    <p>{{post.sightseeing}}</p>
+    <br><br><br>
+    {% if post.image_1 %}
+    <div style="width: 250px;">
+        <img src="{{ post.image_1.url }}" alt="post image_1" style="width: 100%;">
+    </div>
+    {% endif %}
+    {% if post.image_2 %}
+    <div style="width: 250px;">
+        <img src="{{ post.image_2.url }}" alt="post image_2" style="width: 100%;">
+    </div>
+    {% endif %}
+
+    {% if post.image_3 %}
+    <div style="width: 250px;">
+        <img src="{{ post.image_3.url }}" alt="post image_3" style="width: 100%;">
+    </div>
+    {% endif %}
+    <br><br>
+
+    <div>
+        <a href="{% url 'travelbox:box_update' post.id %}" style="width: 300px">Edit</a>
+    </div>
+    <div>
+        <a href="{% url 'travelbox:delete' post.id %}">delete</a>
+    </div>
+    <div>
+    <a href="{% url 'travelbox:read_all'%}">Go back</a>
+    </div>
+
+     <!-- 임시===== -->
+     <div>
+        <a href="{% url 'travelbox:travelbox' post.id%}">My Box_test2</a>
+        </div>
+    
+    
+    </body>
+</html>

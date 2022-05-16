@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>
+    <h1>Travel box</h1>
+
+    <form action="{% url 'travelbox:create_tmp' selection.id %}" id="post-write" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+     <!-- 장소: <input type="text" name="place_name"><br>
+     교통: <input type="text" name="traffic"><br>
+     숙소: <input type="text" name="accomdation"><br>
+     음식: <input type="text" name="food"><br>
+     경치: <input type="text" name="sightseeing"><br>
+     액티비티: <input type="text" name="activity"><br>
+      -->
+
+      <label for="place_name">장소:</label>
+      <select name="place_name" >
+        <option value="none">선택</option>
+        <option value="영월">영월</option>
+        <option value="철원">철원</option>
+        <option value="군산">군산</option>
+        <option value="삼척">삼척</option>
+        <option value="문경">문경</option>
+        <option value="철원">태안</option>
+      </select>
+      <br><br>
+      
+      <label for="traffic">교통수단:</label>
+      <select name="traffic" >
+        <option value="none">선택</option>
+        <option value="자차">자차</option>
+        <option value="고속버스">고속버스</option>
+        <option value="기차">기차</option>
+      </select>
+      <br><br>
+      숙소: <input type="text" name="accomdation"><br>
+      숙소_이미지: <input type="file" name="image_accomdation"><br>
+      숙소_링크: <input type="text" name="addr_accomdation"><br>
+      음식: <input type="text" name="food"><br>
+      음식_이미지: <input type="file" name="image_food"><br>
+      경치: <input type="text" name="sightseeing"><br>
+      <!-- 경치_주소_링크: <input type="text" name="link_sightseeing"><br> -->
+      경치_이미지: <input type="file" name="image_sightseeing"><br>
+      액티비티: <input type="text" name="activity"><br>
+      액티비티_이미지: <input type="file" name="image_activity"><br>
+      부제목: <input type="text" name="sub_title"><br>
+      설명: <input type="text" name="script"><br>
+      <br><br>
+
+
+
+     <div>
+        지역사진   <input type="file" name="image_head"><br>
+        미션사진_1 <input type="file" name="image_1"><br>
+        미션사진_2 <input type="file" name="image_2"><br>
+        미션사진_3 <input type="file" name="image_3"><br>
+     </div>
+     <br><br>
+     
+     <input type="submit" value="submit" >
+    </form>
+
+    
+</body>
+</html>

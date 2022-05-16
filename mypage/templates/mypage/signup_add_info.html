@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Signup Plus</h1>
+    <form action="{% url 'mypage:signup_add_info' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="이름"/><br>
+        <input type="text" name="phone_number" placeholder="전화번호"/><br>
+
+        
+        <p>성별을 선택해주세요:</p>
+        <div class="d-flex justify-content-between">
+            <input type="radio" id="male" name="gender" value="M" {% if M %}checked{% endif %} />
+            <label for="male">남성</label>
+            <input type="radio" id="female" name="gender" value="W" {% if W %}checked{% endif %}/>
+            <label for="female">여성</label><br>
+        </div>
+        <input type="text" name="age" placeholder="연령대" {% if age %}value="{{ age }}"{% endif %}/><br>
+        <input type="email" name="email" placeholder="이메일" {% if email %}value="{{ email }}"{% endif %}/><br>
+        <input type="submit" />
+    </form>
+    <form action="{% url 'mypage:logout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="로그아웃" />
+    </form>
+</body>
+</html>

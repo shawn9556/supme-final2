@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travelbox Update</title>
+</head>
+<body>
+   <form action="{% url 'travelbox:box_update' post.id %}" id="post-edit" method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+    장소: <input type="text" name="place_name" value="{{post.place_name}}"><br>
+    교통: <input type="text" name="traffic" value="{{post.traffic}}"><br>
+    숙소: <input type="text" name="accomdation" value="{{post.accomdation}}"><br>
+    음식: <input type="text" name="food" value="{{post.food}}"><br>
+    경치: <input type="text" name="sightseeing" value="{{post.sightseeing}}"><br>
+    액티비티: <input type="text" name="activity" value="{{post.activity}}"><br>
+    부제목: <input type="text" name="sub_title" value="{{post.sub_title}}"><br>
+    설명: <input type="text" name="script" value="{{post.script}}"><br><br><br>
+    <div>
+        {% if post.image_head %}
+                <div style="width: 250px;">
+                    대표 사진<img src="{{ post.image_head.url }}" alt="post image_head" style="width: 100%;">
+                    <input type="file" name="image_head" id="post-edit"><br>
+                </div>
+        {% endif %}
+        <br>
+        {% if post.image_1 %}
+                <div style="width: 250px;">
+                    미션사진_1<img src="{{ post.image_1.url }}" alt="post image_1" style="width: 100%;">
+                    <input type="file" name="image_1" id="post-edit"><br>
+                </div>
+        {% endif %}
+        <br>
+        {% if post.image_2 %}
+                <div style="width: 250px;">
+                    미션사진_2<img src="{{ post.image_2.url }}" alt="post image_2" style="width: 100%;">
+                    <input type="file" name="image_2" id="post-edit"><br>
+                </div>
+        {% endif %}
+        <br>
+        {% if post.image_3 %}
+                <div style="width: 250px;">
+                    미션사진_3<img src="{{ post.image_3.url }}" alt="post image_3" style="width: 100%;">
+                    <input type="file" name="image_3" id="post-edit"><br>
+                </div>
+        {% endif %}
+       
+        
+    </div>
+    <input type="submit" value="submit" onclick="alert('업데이트 완료')">
+   </form>
+
+   <div>
+    <a href="{% url 'travelbox:read_all'%}" style="width: 300px">Go back</a>
+    </div>
+
+   
+</body>
+</html> 

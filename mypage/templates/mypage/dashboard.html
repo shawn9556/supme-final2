@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard</title>
+        <link rel="icon" type="image/x-icon" href="/static/landing/assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/landing/css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/a7bf9f3dfd.js" crossorigin="anonymous"></script>
+        
+        <!-- 여행 일정 pick하기 -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+        <script>
+            $(function() {
+              $('input[name="daterange"]').daterangepicker({
+                opens: 'right',
+                startDate: moment(),
+                maxSpan: {
+                    "days": 2
+                },
+                "locale": {
+                "daysOfWeek": ["월", "화", "수", "목", "금", "토", "일"],
+                "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                }
+              }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+              });
+            });
+        </script>
+
+        <!-- profile card 관련 css -->
+        <link rel="stylesheet" href= "{% static 'survey/css/style.css' %}">
+        <!-- 사진 크레딧 -->
+        <style>
+            #survey-credit {
+              display: flex;
+              align-self: flex-end;
+              font-size: x-small;
+            }
+          </style>
+
+        <!-- 사진첩 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body id="page-top" background="{% static 'survey/assets/supme-space.jpg' %}">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:deeppink;" id="sideNav">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none">SUPME</span>
+            <span class="d-none d-lg-block"><iframe src="https://giphy.com/embed/wPyDWwurn8XEWdR9ol" width="240"  frameBorder="0" class="giphy-embed img-fluid mx-auto mb-2" ></iframe></span>
+            <!-- <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gotravel">Go Travel</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#myalbum">My Album</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/contact/">contact</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/login/">logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Page Content -->
+<div class="container-fluid p-0" >
+    <!-- Profile-->
+    <form class="resume-section" id="profile" >
+        <div class="resume-section-content" style="margin-top: 150px;">
+        <!-- Profile Card -->
+            <div style="margin-bottom: 100px;">
+                <div class="profile-card js-profile-card">
+                <div class="profile-card__img" >
+                    <img src="{% static 'landing/assets/img/char1.jpg' %}" width="100" style="border-radius: 50px;" ></img>
+                </div>
+                
+            
+                <div class="profile-card__cnt js-profile-cnt">
+                    <div class="card-header">
+                        <h3 style="margin-top:20px;">
+                            화성에서온 
+                            <span class="text-primary">{{ user.username }}</span>
+                            님!
+                        </h3><br>
+                        <h4 >SUPME 의 <span class="text-primary">{{profile.id}}</span>번째 탑승객입니다. </h4>
+                    </div>
+                    <div class="profile-contents" >
+                        <div class="profile-content-wrapper">
+                            <p class="profile-content">Name : {{profile.name}}</p>
+                            <p class="profile-content">Name : Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium neque quae officia ipsa illum placeat repellat atque ullam deleniti quos? Nesciunt soluta iste voluptatum, illo temporibus architecto dolorum quibusdam vel?</p>
+                            <p class="profile-content">Character : d  {{ profile.alien_type }}</p>
+                            <p class="profile-content">Number : d {{profile.phone_number}} </p>
+                            <p class="profile-content">Email : d {{profile.email}} </p>
+                        </div>
+                        <!-- update button -->
+                        <div class="profile-card-ctr d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="profile-card__button button--orange" type="submit" id="updatebutton" name="update" value="update">
+                                <a href="/mypage/update/" style="color:white; text-decoration:none;">회원정보 변경</a>
+                            </button>
+                        </div>
+                        <!-- story button -->
+                            <h2 class="accordion-header" id="headingTwo">
+                                <section class="mother">
+                                    <div class="story-card">
+                                        <button style="border-radius: 5rem;" class="collapsed btn btn-primary me-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <a style="font-size:20px; color:whitesmoke;">{{profile.alien_name}} story</a>
+                                        </button>  
+                                    </div> 
+                                </section>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="card-group">
+                                        <div class="card">
+                                            <div class="card card-body">
+                                                2900년.. 화성에서는 착한 외계인들이 사는 몽땅 마을이 있었어요. 
+        
+                                                <br>꼬끼아쥬 테리어는 그 중에서도 제일 순수하기로 소문난 외계인이였어요. 
+        
+                                                <br>그러던 어느날 지구에서 온 한 인간을 만나게 되었어요. 
+        
+                                                <br>그 인간의 이름은 “서프테리우스”로 우주에서 안가본 곳이 없을 정도로 여행을 좋아하는 인간이었죠. 
+        
+                                                <br>꼬끼아쥬 테리어는 서프테리우스와 긴긴 이야기를 나누었어요.
+        
+        
+                                                <br>다른 사람들 사는 이야기... 다른 행성의 멋진 산과 다양한 해산물 맛집.. 
+        
+                                                <br>그 둘은 시간이 가는 줄 모르고 몇날 며칠을 밤을 새워 이야기를 나누었어요. 
+        
+                                                <br>꼬끼아쥬 테리어는 마음속에 무언가 불타오르는것을 느끼기 시작했어요.
+        
+                                                <br>‘나도 그곳에 가보고 싶다’ 
+        
+        
+                                                <br>한번도 가본 적 없는 그곳에 꼬끼아쥬는 가보고 싶다 생각했죠. 
+        
+                                                <br>꼬끼아쥬 테리어는 서프테리우스에게 이야기했어요. 
+        
+                                                <br>“서프테리우스, 어떻게하면 그런곳으로 여행을 다닐 수 있죠?”
+        
+                                                <br>서프테리우스는 지그시 꼬끼아쥬 테리어의 눈을 바라보다가 말했어요. 
+        
+                                                <br>“꼬끼아쥬 테리어님 , 정말 새로운 여행을 가고 싶으세요?”
+        
+                                                <br>“네, 서프테리우스님이 하신 경험을 저도 할 수 있다면 당장 떠날 채비를 할게요”
+        
+                                                <br>서프테리우스는 집 모양으로 생긴 우주선으로 꼬끼아쥬 테리어를 데려갔어요.
+        
+                                                <br>“꼬끼아쥬 테리어님, 어렵지 않아요. 이것만 있으면 바로 여행을 떠날 수 있죠. 
+        
+                                                <br>지금 바로 서프미에 탑승하세요”
+        
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>    
+                </div>
+            </div>
+        </div>
+    </form>
+            <!-- GO Travel-->
+            <section class="resume-section" id="gotravel">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Go Travel </h2>
+
+
+                    <div class="card text-center" style="margin-top:60px; opacity: 0.85;">
+                        <div class="card-header">
+                            <p style="font-size: 22px; margin-top:40px; padding-bottom:20px; font-weight: 800;">
+                                당신만의 로컬 여행 왕복선을 준비하고 있어요
+                            </p>
+                        </div>
+
+
+                        <style>
+                            #msform {
+                                text-align: center;
+                                position: relative;
+                                margin-top: 20px;
+                                }
+
+
+                            #progressbar {
+                            margin-bottom: 30px;
+                            overflow: hidden;
+                            color: lightgrey;
+                            }
+                            #progressbar .active {
+                                color: deeppink;
+                                }
+
+                            #progressbar li {
+                            list-style-type: none;
+                            font-size: 12px;
+                            width: 25%;
+                            float: left;
+                            position: relative;
+                            font-weight: 400;
+                            }
+                            /*Icons in the ProgressBar*/
+                            #progressbar #preparing:before {
+                            font-family: FontAwesome;
+                            content: "\f281";
+                            }
+
+                            #progressbar #prepared:before {
+                            font-family: FontAwesome;
+                            content: "\f281";
+                            }
+
+                            #progressbar #on_travel:before {
+                            font-family: FontAwesome;
+                            content: "\f281";
+                            }
+
+                            #progressbar #finished:before {
+                            font-family: FontAwesome;
+                            content: "\f4fb";
+                            }
+                            /*Icon ProgressBar before any progress*/
+                            #progressbar li:before {
+                            width: 50px;
+                            height: 50px;
+                            line-height: 45px;
+                            display: block;
+                            font-size: 20px;
+                            color: #ffffff;
+                            background: rgb(145, 138, 138);
+                            border-radius: 50%;
+                            margin: 0px auto 10px auto;
+                            padding: 2px;
+                            }
+
+                            /*ProgressBar connectors*/
+                            #progressbar li:after {
+                            content: '';
+                            width: 100%;
+                            height: 2px;
+                            background: lightgray;
+                            position: absolute;
+                            left: 0;
+                            top: 25px;
+                            z-index: -1;
+                            }
+
+                            /*Color number of the step and the connector before it*/
+                            #progressbar li.active:before , #progressbar li:after {
+                            background: deeppink;
+                            }
+                            
+
+                            /* input css 작성 */
+                            .input_number {
+                                width: 60%;
+                                border-radius: 5px;
+                                border-width: 1px;
+                                opacity: 0.8;
+                                /* background-color: black; */
+                                border-bottom: #ffffff;
+                            }
+                             
+
+                        </style>
+
+                        <div id="msform" >
+                            <!-- progressbar -->
+                            <ul id="progressbar" >
+                                <li name="preparing" {% if preparing %}class="active"{% endif %} id="preparing"><strong>여행 준비중</strong></li>
+                                <li name="prepared" {% if prepared %}class="active"{% endif %} id="prepared"><strong>준비 완료</strong></li>
+                                <li name="on_travel" {% if on_travel %}class="active"{% endif %} id="on_travel"><strong>여행 중</strong></li>
+                                <li name="finished" {% if finished %}class="active"{% endif %} id="finished"><strong>여행 완료</strong></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p style="font-size:16px; color:grey; padding-top:10px; padding-bottom:30px; margin-top:20px;">
+                                놀라게 할 여행이 곧 오픈되요.<br> 설레일 시간이 얼마남지 않았네요!
+                                
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" style="margin-top:80px;">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">OPTION1-서프미 부탁해</h3>
+                            <div class="subheading mb-3">서프라이즈한 여행을 가볼래!</div>
+                            <p>Go 버튼을 누르고 서프미에게 알림을 보내주세요 </p>
+
+                            <!-- 여행 일정 정하기  -->
+                            <form action="{% url 'mypage:select_travel' %}" method="post" class="my-3">
+                                {% csrf_token %}
+                                <div>
+                                    <label for='people' class="type-label text-primary">인원수&emsp;:&emsp;</label>
+                                    <input {% if not user.is_authenticated %}disabled{% endif %} class="input_number" pattern="\d*" placeholder="인원 수" oninput="maxLengthCheck(this)" style="margin-left: 18px;" type="number"  min="1" max="2" default="1" name="people" id="people" rows="1">
+                                    <script>
+                                        function maxLengthCheck(Object) {
+                                            if (object.value.length > object.maxLength) {
+                                                object.value = object.value.slice(0, object.maxLength)
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                                <div>
+                                    <label for='start_date' class="type-label text-primary">여행 일정&emsp;:&emsp;</label>
+                                    <input {% if not user.is_authenticated %}disabled{% endif %} class="input_number" type="text" name="daterange" id="start_date">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">OPTION2-서프미 잠깐만</h3>
+                                    <div class="subheading mb-3">바꾸고싶은게 생겼어 !</div>
+                                    <p>마누라, 자식 빼고 다 바꿔</p>
+                                    <!-- 여행 목적 선택 -->
+                                    <label for='travel_purpose' class="type-label text-primary">여행 목적</label>
+                                    <input {% if not user.is_authenticated %}disabled{% endif %} type="search" name="travel_purpose" id="travel_purpose" list="purpose-list">
+                                    <datalist id="purpose-list">
+                                        <option value="힐링"></option>
+                                        <option value="아웃도어"></option>
+                                        <option value="맛집투어"></option>
+                                        <option value="자연감상"></option>
+                                    </datalist>
+                                    <br>
+                                    <!-- 출발지 선택 -->
+                                    <label for='place_start' class="type-label text-primary">출발지</label>
+                                    <input {% if not user.is_authenticated %} disabled {% endif %} type="search" name="place_start" id="place_start" list="start-list">
+                                    <datalist id="start-list">
+                                        <option value="강동구">강동구</option>
+                                        <option value="강남구">강남구</option>
+                                        <option value="강북구">강북구</option>
+                                        <option value="강서구">강서구</option>
+                                    </datalist>
+                                    <!-- go button, progress button-->
+                                    <div class="button-primary">
+                                        <input type="submit" value="선택" {% if not can_select %}disabled{% endif %} class="btn btn-primary">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Album-->
+            <section class="resume-section" id="myalbum">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">My Album </h2>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            {% if getpic.user_image_1 %}
+                            <img src="/media/{{ getpic.user_image_1 }}" class="d-block w-100" alt="...">
+                            {% endif %}
+                          </div>
+                          <div class="carousel-item">
+                            {% if getpic.user_image_2 %}
+                            <img src="/media/{{ getpic.user_image_2 }}" class="d-block w-100" alt="...">
+                            {% endif %}
+                          </div>
+                          <div class="carousel-item">
+                            {% if getpic.user_image_3 %}
+                            <img src="/media/{{ getpic.user_image_3 }}" class="d-block w-100" alt="...">
+                            {% endif %}
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+            </section>
+</div>
+
+    <!-- survey JS -->
+    <script src="/static/survey/js/survey.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- 사진첩 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

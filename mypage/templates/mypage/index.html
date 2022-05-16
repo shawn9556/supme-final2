@@ -1,0 +1,40 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <form action="/mypage/logout/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="로그아웃" />
+    </form>
+    {% else %}
+    <form action="/mypage/login/" method="get">
+        <input type="submit" value="로그인" />
+    </form>
+    <form action="/mypage/signup/" method="get">
+        <input type="submit" value="회원가입" />
+    </form>
+    <div class="d-flex justify-content-between">
+        <div class="mb-3">
+            <form action="{% provider_login_url 'naver' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="네이버">
+            </form>
+        </div>
+        <div class="mb-3">
+            <form action="{% provider_login_url 'kakao' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="카카오">
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>
+   
