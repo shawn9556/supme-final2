@@ -23,9 +23,7 @@ class Profile(models.Model):
     alien_name = models.CharField(max_length=32)
     alien_content = models.TextField()
     for_user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    
-    def __str__(self):
-        return self.for_user.username
+
 
 class Select(models.Model):
     selector = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/static/home/img/favicon.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/home/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/home/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/home/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/static/home/css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Footers · Bootstrap v5.1</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+
+    <style>
+        body{ 
+            background-image: linear-gradient(-20deg, rgba(255, 40, 70, 0.8) 0%, rgba(105, 68, 255, 0.8) 100%), url(/static/home/img/background.jpg);
+
+            background-size: cover;
+        }
+
+
+
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="footers.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+
+
+    
+</head>
+
+<body>
+  
+
+    <div class="container-xxl bg-white p-0" style="opacity:0.9;">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+        <nav id="navbar-example2" class="navbar bg-light px-3" >
+            <a class="navbar-brand" href="/supme/" style="font-size:50px" >supme</a>
+
+            <ul class="nav nav-pills">
+            
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading1"><b>Main</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading2"><b>Survey</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading3"><b>process</b></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading4"><b>review</b></a>
+              </li>
+              <li class="nav-item">
+                <a href="/mypage/login/" class="btn btn-primary rounded-1 py-2 px-md-3" class="nav-link">Log-in<i class="fa fa-arrow-right ms-1"></i></a>
+              </li>
+            </ul>
+          </nav>
+
+          {% block main %}
+          {% endblock %}
+          <div class="container-xxl testimonial my-6 py-1 bg-dark wow zoomIn" data-wow-delay="1s" style="opacity:0.9;">
+
+          <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <div class="col-md-4 d-flex align-items-center">
+                </a>
+                <span class="text-muted">&copy; 2022 SUPME</span>
+            </div>
+                <div >
+                        <a class="me-3" href="https://www.facebook.com/"><i class="fab fa-facebook-f" ></i></a>
+                        <a class="me-3" href="https://twitter.com/"><i class="fab fa-twitter" ></i></a>
+                        <a class="me-3" href="https://www.instagram.com/_supme.travelbox/?hl=ko"><i class="fab fa-instagram"  ></i></a>
+                        <a class="me-3" href="https://www.youtube.com/?gl=KR"><i class="fab fa-youtube" ></i></a>
+            </footer>
+          </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/home/js/main.js"></script>
+    </body>
+
+
+</html>

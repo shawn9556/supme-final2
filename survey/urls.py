@@ -15,5 +15,6 @@ urlpatterns = [
     path('survey-q7/', views.question7, name='survey_q7'),
     path('survey-q8/', views.question8, name='survey_q8'),
     path('survey-q9/', views.question9, name='survey_q9'),
+    path('survey-q10/', views.question10, name='survey_q10'),
     path('survey-end/', views.survey_end, name='survey_end'),
 ]

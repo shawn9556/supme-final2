@@ -5,38 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href= "{% static 'survey/css/style.css' %}">
+    <link rel="stylesheet" href= "{% static 'survey/css/stylez.css' %}">
     <title>supme survey</title>
+    <style>
+      #survey-credit {
+        display: flex;
+        align-self: flex-end;
+        font-size: x-small;
+      }
+    </style>
 </head>
 <body id="page-top" background="{% static 'survey/assets/supme-space.jpg' %}">
   <div class="wrapper">
         <div class="profile-card js-profile-card">
           <div class="profile-card__img">
-            <img src="" alt="profile card">
+            <img src="/static/survey/assets/survey9.jpg" alt="profile card">          
           </div>
       
           <div class="profile-card__cnt js-profile-cnt">
-            <div class="profile-card__name">첫번째 질문</div>
-            <div class="profile-card__txt"><strong>일론 머스크의 공짜 우주여행에 당첨되었다.<br></strong></div>
+            <div class="profile-card__name">아홉번째 질문</div>
+            <div class="profile-card__txt"><strong>당신이 잡은 동물을 가지고 <br>요리를 하려고 하는데 3개의 양념이 있다. <br></strong></div>
             <div class="profile-card-loc">
-              <span class="profile-card-loc__icon">
-                <!-- <svg class="icon">
-                  <use xlink:href="#icon-location"></use>
-                </svg> -->
-              </span>
+          
       
               <span class="profile-card-loc__txt">
-                당신의 선택지는?
+                한가지만 선택하여 요리를 한다고 한다면,<br> 어떤 것을 선택할 것인가?
+              
               </span>
             </div>
 
               <div class="profile-card-ctr">
                 <form action="{% url 'survey:survey_q9' %}" method="post">
                   {% csrf_token %}
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="moon" name="where" value="moon">달</button>
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="mars" name="where" value="mars">화성</button>
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="blackhole" name="where" value="black_hole">우주 정거장</button>
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="space_station" name="where" value="space_station">블랙홀</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="pepper" name="seasoning" value="pepper">후추</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="redpepper" name="seasoning" value="redpepper">고추장</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="soy" name="seasoning" value="soy">간장</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="raw" name="seasoning" value="raw">날것으로 먹는다</button>
                 </form>
               </div>
 

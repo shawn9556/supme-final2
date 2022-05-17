@@ -244,7 +244,7 @@ def weather(request):
 def travelbox(request, post_id):
     read = Travel_box.objects.get(id = post_id)
     if read.travel_box_user != request.user:
-        return redirect("mypage:home")
+        return redirect("mypage:dashboard")
 
     context = {
         'post': read, 

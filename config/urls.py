@@ -29,5 +29,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('accounts/social/login/cancelled/', lambda request: redirect("mypage/login/")),
     path('accounts/social/login/error/', lambda request: redirect("mypage/login/")),
+    path('home/', include("home.urls")),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

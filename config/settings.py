@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'mypage.apps.MypageConfig',
     'survey',
     'travelbox',
+    'home',
 
     'bootstrap_daterangepicker',
 

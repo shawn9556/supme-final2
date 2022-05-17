@@ -53,10 +53,14 @@ def signup(request):
         if(request.POST.get('username') and
             request.POST.get('password') and
             request.POST.get('password') == request.POST.get('password_check')):
+            if User.objects.filter(username=request.POST.get('username')).exists():
+                return redirect("mypage:login")
+            
             new_user = User.objects.create_user(
                 username = request.POST.get('username'),
                 password = request.POST.get('password'),
             )
+
             # auth.login(request, new_user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect("mypage:signup_add_info")
         else:
@@ -166,8 +170,10 @@ def dashboard(request):
                 box_viewer = box_viewer.order_by("-pk")[0]
                 
                 #### 유저가 사진 올린거 사진첩에 띄우기 ####
-                album = GetPic.objects.filter(box_id=box_viewer.id).order_by("-pk")[0]
-                context.update({"album": album})
+                getpics = GetPic.objects.filter(box_id=box_viewer.id)
+                if getpics.exists():
+                    album = getpics.order_by("-pk")[0]
+                    context.update({"album": album})
             
             context.update({
                 "profile": profile,

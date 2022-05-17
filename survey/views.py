@@ -66,7 +66,7 @@ def question3(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question3 = request.POST.get('where')
+        activity_answer.question3 = request.POST.get('age')
         activity_answer.save()
         return redirect("survey:survey_q4")
     return render(request, 'survey/survey_q3.html')
@@ -80,7 +80,7 @@ def question4(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question4 = request.POST.get('where')
+        activity_answer.question4 = request.POST.get('disposition')
         activity_answer.save()
         return redirect("survey:survey_q5")
     return render(request, 'survey/survey_q4.html')
@@ -94,7 +94,7 @@ def question5(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question5 = request.POST.get('where')
+        activity_answer.question5 = request.POST.get('site')
         activity_answer.save()
         return redirect("survey:survey_q6")
     return render(request, 'survey/survey_q5.html')
@@ -108,7 +108,7 @@ def question6(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question6 = request.POST.get('where')
+        activity_answer.question6 = request.POST.get('house')
         activity_answer.save()
         return redirect("survey:survey_q7")
     return render(request, 'survey/survey_q6.html')
@@ -122,7 +122,7 @@ def question7(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question7 = request.POST.get('where')
+        activity_answer.question7 = request.POST.get('weapon')
         activity_answer.save()
         return redirect("survey:survey_q8")
     return render(request, 'survey/survey_q7.html')
@@ -136,7 +136,7 @@ def question8(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question8 = request.POST.get('where')
+        activity_answer.question8 = request.POST.get('food')
         activity_answer.save()
         return redirect("survey:survey_q9")
     return render(request, 'survey/survey_q8.html')
@@ -150,10 +150,24 @@ def question9(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question9 = request.POST.get('where')
+        activity_answer.question9 = request.POST.get('seasoning')
+        activity_answer.save()
+        return redirect("survey:survey_q10")
+    return render(request, 'survey/survey_q9.html')
+
+def question10(request):
+    survey_uid = request.COOKIES.get("supme-survey-id")
+    if not survey_uid:
+        return redirect("mypage:home")
+    if request.method == "POST":
+        try:
+            activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
+        except OperationalError:
+            return redirect("mypage:home")
+        activity_answer.question10 = request.POST.get('stay')
         activity_answer.save()
         return redirect("survey:survey_end")
-    return render(request, 'survey/survey_q9.html')
+    return render(request, 'survey/survey_q10.html')
 
 def survey_end(request):
     survey_uid = request.COOKIES.get("supme-survey-id")
@@ -164,7 +178,7 @@ def survey_end(request):
             activity_answer = SurveyQuestion.objects.get(survey_uid=survey_uid)
         except OperationalError:
             return redirect("mypage:home")
-        activity_answer.question10 = request.POST.get('where')
+        activity_answer.question11 = request.POST.get('send')
         activity_answer.save()
         return redirect("mypage:login")
-    return render(request, 'survey/survey_q10.html')
+    return render(request, 'survey/survey_q11.html')

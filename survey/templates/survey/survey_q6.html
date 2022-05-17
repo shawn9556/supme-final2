@@ -5,19 +5,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href= "{% static 'survey/css/style.css' %}">
+    <link rel="stylesheet" href= "{% static 'survey/css/stylez.css' %}">
     <title>supme survey</title>
+    <style>
+      #survey-credit {
+        display: flex;
+        align-self: flex-end;
+        font-size: x-small;
+      }
+    </style>
 </head>
 <body id="page-top" background="{% static 'survey/assets/supme-space.jpg' %}">
   <div class="wrapper">
         <div class="profile-card js-profile-card">
           <div class="profile-card__img">
-            <img src="" alt="profile card">
+            <img src="/static/survey/assets/survey6.jpg" alt="profile card">          
           </div>
       
           <div class="profile-card__cnt js-profile-cnt">
-            <div class="profile-card__name">첫번째 질문</div>
-            <div class="profile-card__txt"><strong>일론 머스크의 공짜 우주여행에 당첨되었다.<br></strong></div>
+            <div class="profile-card__name">여섯번째 질문</div>
+            <div class="profile-card__txt">사람이 없는 곳에서 우연히 당신은 외계생물체를 발견하였다. 그도 오랜시간 혼자였는지 나를 반기며 자신의 집을 소개해주려 한다.<br></div>
             <div class="profile-card-loc">
               <span class="profile-card-loc__icon">
                 <!-- <svg class="icon">
@@ -26,17 +33,17 @@
               </span>
       
               <span class="profile-card-loc__txt">
-                당신의 선택지는?
+                당신이 소개받은 집은 어떤 집인가??
               </span>
             </div>
 
               <div class="profile-card-ctr">
                 <form action="{% url 'survey:survey_q6' %}" method="post">
                   {% csrf_token %}
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="moon" name="where" value="moon">달</button>
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="mars" name="where" value="mars">화성</button>
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="blackhole" name="where" value="black_hole">우주 정거장</button>
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="space_station" name="where" value="space_station">블랙홀</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="cottage" name="house" value="cottage">오두막집</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="mordern" name="house" value="mordern">모던한 집</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="emotion" name="house" value="emotion">감성적인 집</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="camping" name="house" value="camping">텐트</button>
                 </form>
               </div>
 
