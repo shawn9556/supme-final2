@@ -1,4 +1,4 @@
-from sys import abiflags
+
 from wsgiref.handlers import format_date_time
 from django.shortcuts import render, redirect, get_object_or_404
 from allauth.socialaccount.models import SocialAccount
@@ -120,11 +120,13 @@ def signup_add_info_view(request):
 
     # 회수한 성별 정보 있는지 확인 후 전달 (context["M"] or context["W"])
     if user_gender is None:
-        try:
-            user_gender_list = SurveyQuestion.objects.filter(survey_uid=survey_uid).order_by("-pk")[0]
-            user_gender = user_gender_list.question2
-        except OperationalError:
-            pass
+        user_gender_list = SurveyQuestion.objects.filter(survey_uid=survey_uid)
+        if user_gender_list.exists():
+            try:
+                user_gender_list.order_by("-pk")[0]
+                user_gender = user_gender_list.question2
+            except OperationalError:
+                pass
 
     if user_gender is not None:
         if user_gender == "M":

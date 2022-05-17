@@ -9,11 +9,35 @@ class Travel_box(models.Model):
     script = models.TextField(max_length=1024, blank=True, null = True)
     place_name = models.TextField(max_length=16, blank= True, null = True)
     traffic = models.TextField(max_length=1024, blank=True, null = True)
-    accomdation = models.TextField(max_length=8192, blank=True, null = True)
-    addr_accomdation = models.TextField(max_length=2048, blank=True, null = True)
-    food  = models.TextField(max_length=1024, blank=True, null = True)
-    activity = models.TextField(max_length=1024, blank=True, null = True)
-    sightseeing = models.TextField(max_length=8192, blank=True, null = True)
+    
+    accomdation_1 = models.TextField(max_length=8192, blank=True, null = True)
+    addr_accomdation_1 = models.TextField(max_length=2048, blank=True, null = True)
+    accomdation_2 = models.TextField(max_length=8192, blank=True, null = True)
+    addr_accomdation_2 = models.TextField(max_length=2048, blank=True, null = True)
+    accomdation_3 = models.TextField(max_length=8192, blank=True, null = True)
+    addr_accomdation_3 = models.TextField(max_length=2048, blank=True, null = True)
+    
+    food_1  = models.TextField(max_length=1024, blank=True, null = True)
+    addr_food_1  = models.TextField(max_length=1024, blank=True, null = True)
+    food_2  = models.TextField(max_length=1024, blank=True, null = True)
+    addr_food_2  = models.TextField(max_length=1024, blank=True, null = True)
+    food_3  = models.TextField(max_length=1024, blank=True, null = True)
+    addr_food_3  = models.TextField(max_length=1024, blank=True, null = True)
+    
+    activity_1 = models.TextField(max_length=1024, blank=True, null = True)
+    addr_activity_1 = models.TextField(max_length=1024, blank=True, null = True)
+    activity_2 = models.TextField(max_length=1024, blank=True, null = True)
+    addr_activity_2 = models.TextField(max_length=1024, blank=True, null = True)
+    activity_3 = models.TextField(max_length=1024, blank=True, null = True)
+    addr_activity_3 = models.TextField(max_length=1024, blank=True, null = True)
+    
+    sightseeing_1 = models.TextField(max_length=8192, blank=True, null = True)
+    addr_sightseeing_1 = models.TextField(max_length=8192, blank=True, null = True)
+    sightseeing_2 = models.TextField(max_length=8192, blank=True, null = True)
+    addr_sightseeing_2 = models.TextField(max_length=8192, blank=True, null = True)
+    sightseeing_3 = models.TextField(max_length=8192, blank=True, null = True)
+    addr_sightseeing_3 = models.TextField(max_length=8192, blank=True, null = True)
+    
     create_date = models.CharField(max_length=32, null=True, blank=True)
     
     image_head = models.ImageField(
@@ -39,28 +63,93 @@ class Travel_box(models.Model):
 
     )
 
-    image_accomdation = models.ImageField(
+    ############################숙소사진#################
+
+    image_accomdation_1 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_accomdation_2 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_accomdation_3 = models.ImageField(
         upload_to = 'landing/images/%Y/%m/%d/%H/',
         blank = True,
         null= True,
 
     )
 
-    image_food = models.ImageField(
+############음식사진####################
+
+    image_food_1 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_food_2 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_food_3 = models.ImageField(
         upload_to = 'landing/images/%Y/%m/%d/%H/',
         blank = True,
         null= True,
 
     )
 
-    image_activity = models.ImageField(
+
+############엑티비티사진####################
+
+    image_activity_1 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_activity_2 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_activity_3 = models.ImageField(
         upload_to = 'landing/images/%Y/%m/%d/%H/',
         blank = True,
         null= True,
 
     )
 
-    image_sightseeing = models.ImageField(
+############경치사진####################
+
+    image_sightseeing_1 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_sightseeing_2 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    image_sightseeing_3 = models.ImageField(
+        upload_to = 'landing/images/%Y/%m/%d/%H/',
+        blank = True,
+        null= True,
+
+    )
+    
+    ############교통사진########
+    traffic_road = models.ImageField(
         upload_to = 'landing/images/%Y/%m/%d/%H/',
         blank = True,
         null= True,

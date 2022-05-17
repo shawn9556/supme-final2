@@ -1,5 +1,4 @@
-from crypt import methods
-from curses import meta
+
 from django.contrib import admin
 from travelbox.models import *
 

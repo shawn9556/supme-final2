@@ -74,8 +74,8 @@
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
                     <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                    <div class="col-md-6 col-5 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#traffic">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -83,8 +83,8 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                    <div class="col-md-6 col-5 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#accomdation">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -92,8 +92,8 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                    <div class="col-md-6 col-5 mb-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#food">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -101,8 +101,8 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                    <div class="col-md-6 col-5 mb-5 mb-lg-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#activity">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -110,8 +110,8 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                    <div class="col-md-6 col-5 mb-5 mb-md-0">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#sightseeing">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -119,8 +119,8 @@
                         </div>
                     </div>
                     <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                    <div class="col-md-6 col-5">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#mission">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
@@ -170,7 +170,9 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="{% static 'travelbox/assets/cabin.png' %}" alt="..." />
+                                    {% if post.traffic_road %}
+                                    <img class="img-fluid rounded mb-5" src="{% static 'post.traffic_road.url' %}" alt="..." />
+                                    {% endif %}
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">{{post.traffic}}</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
@@ -202,13 +204,32 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    {% if post.accomdation %}
+                                    {% if post.accomdation_1 %}
                                     <!-- <a href="http://www.morningcalmvillage.com/"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation.url }}" alt="..." /></a> -->
-                                    <a href="{{ post.addr_accomdation }}"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation.url }}" alt="..." /></a>
+                                    <a href="{{ post.addr_accomdation_1 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation_1.url }}" alt="..." /></a>
                                    
                                     {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">{{post.accomdation}}</p>
+                                    <p class="mb-4">{{post.accomdation_1}}</p><br>
+                                    
+                                    <!-- Portfolio Modal - Image-->
+                                    {% if post.accomdation_2 %}
+                                    <!-- <a href="http://www.morningcalmvillage.com/"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation.url }}" alt="..." /></a> -->
+                                    <a href="{{ post.addr_accomdation_2 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation_2.url }}" alt="..." /></a>
+                                   
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.accomdation_2}}</p><br>
+                                    
+                                    <!-- Portfolio Modal - Image-->
+                                    {% if post.accomdation_3 %}
+                                    <!-- <a href="http://www.morningcalmvillage.com/"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation.url }}" alt="..." /></a> -->
+                                    <a href="{{ post.addr_accomdation_3 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_accomdation_3.url }}" alt="..." /></a>
+                                   
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.accomdation_3}}</p><br>
+                                    
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -238,11 +259,23 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    {% if post.food %}
-                                    <img class="img-fluid rounded mb-5" src="{{ post.image_food.url }}" alt="..." />
+                                    {% if post.food_1 %}
+                                    <a href="{{ post.addr_food_1 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_food_1.url }}" alt="..." /></a>
                                     {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">{{post.food}}</p>
+                                    <p class="mb-4">{{post.food_1}}</p><br>
+                                    
+                                    {% if post.food_2 %}
+                                    <a href="{{ post.addr_food_2 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_food_2.url }}" alt="..." /></a>
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.food_2}}</p><br>
+                                    {% if post.food_3 %}
+                                    <a href="{{ post.addr_food_3 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_food_3.url }}" alt="..." /></a>
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.food_3}}</p><br>
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -272,11 +305,23 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    {% if post.activity %}
-                                    <img class="img-fluid rounded mb-5" src="{{ post.image_activity.url }}" alt="..." />
+                                    {% if post.activity_1 %}
+                                    <a href="{{ post.addr_activity_1 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_activity_1.url }}" alt="..." /></a>
                                     {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">{{post.activity}}</p>
+                                    <p class="mb-4">{{post.activity_1}}</p><br>
+                                    
+                                    {% if post.activity_2 %}
+                                    <a href="{{ post.addr_activity_2 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_activity_2.url }}" alt="..." /></a>
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.activity_2}}</p><br>
+                                    {% if post.activity_3 %}
+                                    <a href="{{ post.addr_activity_3 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_activity_3.url }}" alt="..." /></a>
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.activity_3}}</p><br>
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
@@ -306,11 +351,23 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
-                                    {% if post.sightseeing %}
-                                    <img class="img-fluid rounded mb-5" src="{{ post.image_sightseeing.url }}" alt="..." />
+                                    {% if post.sightseeing_1 %}
+                                    <a href="{{ post.addr_sightseeing_1 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_sightseeing_1.url }}" alt="..." /></a>
                                     {% endif %}
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">{{post.sightseeing}}</p>
+                                    <p class="mb-4">{{post.sightseeing_1}}</p>
+                                    
+                                    {% if post.sightseeing_2 %}
+                                    <a href="{{ post.addr_sightseeing_2 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_sightseeing_2.url }}" alt="..." /></a>
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.sightseeing_2}}</p>
+                                    {% if post.sightseeing_3 %}
+                                    <a href="{{ post.addr_sightseeing_3 }}"><img class="img-fluid rounded mb-5" src="{{ post.image_sightseeing_3.url }}" alt="..." /></a>
+                                    {% endif %}
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">{{post.sightseeing_3}}</p>
+
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window

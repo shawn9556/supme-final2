@@ -84,12 +84,40 @@ def create(request, selection_id):
         mk_box.sub_title = request.POST.get('sub_title')
         mk_box.script = request.POST.get('script')
         mk_box.place_name = request.POST.get("place_name")
-        mk_box.activity = request.POST.get('activity')
-        mk_box.accomdation = request.POST.get('accomdation')
-        mk_box.addr_accomdation = request.POST.get('addr_accomdation')
-        mk_box.food = request.POST.get('food')      
-        mk_box.sightseeing = request.POST.get('sightseeing')      
-        # mk_box.sightseeing_addr_link = request.POST.get('sightseeing_addr_link')      
+
+        mk_box.activity_1 = request.POST.get('activity_1')
+        mk_box.activity_2= request.POST.get('activity_2')
+        mk_box.activity_3 = request.POST.get('activity_3')
+        
+        mk_box.addr_activity_1 = request.POST.get('addr_activity_1')
+        mk_box.addr_activity_2= request.POST.get('addr_activity_2')
+        mk_box.addr_activity_3 = request.POST.get('addr_activity_3')
+
+        mk_box.accomdation_1 = request.POST.get('accomdation_1')
+        mk_box.accomdation_2 = request.POST.get('accomdation_2')
+        mk_box.accomdation_3 = request.POST.get('accomdation_3')
+       
+        mk_box.addr_accomdation_1 = request.POST.get('addr_accomdation_1')
+        mk_box.addr_accomdation_2 = request.POST.get('addr_accomdation_2')
+        mk_box.addr_accomdation_3 = request.POST.get('addr_accomdation_3')
+
+        mk_box.food_1 = request.POST.get('food_1')      
+        mk_box.food_2 = request.POST.get('food_2')      
+        mk_box.food_3 = request.POST.get('food_3')   
+        
+        mk_box.addr_food_1 = request.POST.get('addr_food_1')      
+        mk_box.addr_food_2 = request.POST.get('addr_food_2')      
+        mk_box.addr_food_3 = request.POST.get('addr_food_3')   
+
+        mk_box.sightseeing_1 = request.POST.get('sightseeing_1')      
+        mk_box.sightseeing_2 = request.POST.get('sightseeing_2')      
+        mk_box.sightseeing_3 = request.POST.get('sightseeing_3')      
+        
+        mk_box.addr_sightseeing_1 = request.POST.get('sightseeing_1')      
+        mk_box.addr_sightseeing_2 = request.POST.get('sightseeing_2')      
+        mk_box.addr_sightseeing_3 = request.POST.get('sightseeing_3')      
+        
+
         mk_box.traffic = request.POST.get('traffic')
         mk_box.create_date = timezone.now()
 
@@ -106,14 +134,40 @@ def create(request, selection_id):
             mk_box.image_3 = request.FILES['image_3']
 
         ### 숙소, 음식, 액티비티, 볼거리 이미지 ###
-        if request.FILES.get("image_accomdation"):          
-            mk_box.image_accomdation = request.FILES['image_accomdation']
-        if request.FILES.get("image_food"):          
-            mk_box.image_food = request.FILES['image_food']
-        if request.FILES.get("image_activity"):          
-            mk_box.image_activity = request.FILES['image_activity']
-        if request.FILES.get("image_sightseeing"):          
-            mk_box.image_sightseeing = request.FILES['image_sightseeing']
+        if request.FILES.get("image_accomdation_1"):          
+            mk_box.image_accomdation_1 = request.FILES['image_accomdation_1']
+        if request.FILES.get("image_accomdation_2"):          
+            mk_box.image_accomdation_2 = request.FILES['image_accomdation_2']
+        if request.FILES.get("image_accomdation_3"):          
+            mk_box.image_accomdation_3 = request.FILES['image_accomdation_3']
+
+        if request.FILES.get("image_food_1"):          
+            mk_box.image_food_1 = request.FILES['image_food_1']
+        if request.FILES.get("image_food_2"):          
+            mk_box.image_food_2 = request.FILES['image_food_2']
+        if request.FILES.get("image_food_3"):          
+            mk_box.image_food_3 = request.FILES['image_food_3']
+
+        if request.FILES.get("image_activity_1"):          
+            mk_box.image_activity_1 = request.FILES['image_activity_1']
+        if request.FILES.get("image_activity_2"):          
+            mk_box.image_activity_2 = request.FILES['image_activity_2']
+        if request.FILES.get("image_activity_3"):          
+            mk_box.image_activity_3 = request.FILES['image_activity_3']
+
+        if request.FILES.get("image_sightseeing_1"):          
+            mk_box.image_sightseeing_1 = request.FILES['image_sightseeing_1']
+        if request.FILES.get("image_sightseeing_2"):          
+            mk_box.image_sightseeing_2 = request.FILES['image_sightseeing_2']
+        if request.FILES.get("image_sightseeing_3"):          
+            mk_box.image_sightseeing_3 = request.FILES['image_sightseeing_3']
+        
+        if request.FILES.get("traffic_road"):          
+            mk_box.traffic_road = request.FILES['traffic_road']
+
+
+
+
 
         ### 우리가 장소를 선택안하는 문제 방지 ###
         if mk_box.place_name == "none":
