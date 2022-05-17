@@ -87,6 +87,8 @@ class GetPic(models.Model):
      checked = models.IntegerField() #체크박스해당 숫자
 
 
+
+
 class City(models.Model):
     name = models.CharField(max_length=25)
 

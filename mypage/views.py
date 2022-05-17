@@ -116,9 +116,11 @@ def signup_add_info_view(request):
     # 회수한 성별 정보 있는지 확인 후 전달 (context["M"] or context["W"])
     if user_gender is None:
         try:
-            user_gender = SurveyQuestion.objects.filter(survey_uid=survey_uid).question2
+            user_gender_list = SurveyQuestion.objects.filter(survey_uid=survey_uid).order_by("-pk")[0]
+            user_gender = user_gender_list.question2
         except OperationalError:
-            pass   
+            pass
+
     if user_gender is not None:
         if user_gender == "M":
             context["M"] = True
@@ -144,8 +146,6 @@ def dashboard(request):
         profile = Profile.objects.all().filter(for_user=request.user)
         box_viewer = Travel_box.objects.all().filter(travel_box_user=request.user)
 
-        # box_pic = Travel_box.objects.get(id=post_id)
-        # album = GetPic.objects.filter(box_id=box_pic).order_by("-pk")[0]
         context = {}
 
         if len(profile) < 1:
@@ -153,24 +153,26 @@ def dashboard(request):
         else:
             profile = profile[0]
             current_select_list = Select.objects.filter(selector=profile).exclude(selection_state="finished")
-            
+
+            ### 여행 의뢰 할 수 있도록 만드는 버튼 ####
             can_select = not current_select_list.exists()
             if not can_select:
                 current_select = current_select_list.order_by("-pk")[0]
                 context[current_select.selection_state] = True
-                print(context.keys())
-
+           
+            #### 유저의 해당 travelbox 보기 ####
             if box_viewer:
                 box_viewer = box_viewer.order_by("-pk")[0]
-                return render(request, 'mypage/dashboard.html', context)
+                
+                #### 유저가 사진 올린거 사진첩에 띄우기 ####
+                album = GetPic.objects.filter(box_id=box_viewer.id).order_by("-pk")[0]
             
             context.update({
                 "profile": profile,
                 "can_select": can_select,
-                "box_view": box_viewer,
-                # "album": album,
+                "box_viewer": box_viewer,
+                "album": album,
             })
-            print(context)
             return render(request, 'mypage/dashboard.html', context)
 
     return redirect("mypage:home")
@@ -200,4 +202,13 @@ def select_travel(request):
 
 
 def update(request):
-    return render(request, "mypage/profile_update.html")
+    if request.method == "GET":
+        return render(request, "mypage/profile_update.html")
+    elif request.method == "POST":
+        profile_update = Profile.objects.get(for_user=request.user)
+        profile_update.name = request.POST.get('name')
+        profile_update.phone_number = request.POST.get('phone_number')
+        profile_update.email = request.POST.get('email')
+        profile_update.save()
+    return redirect("mypage:dashboard")
+
