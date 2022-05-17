@@ -1,3 +1,4 @@
+from sys import abiflags
 from wsgiref.handlers import format_date_time
 from django.shortcuts import render, redirect, get_object_or_404
 from allauth.socialaccount.models import SocialAccount
@@ -166,12 +167,12 @@ def dashboard(request):
                 
                 #### 유저가 사진 올린거 사진첩에 띄우기 ####
                 album = GetPic.objects.filter(box_id=box_viewer.id).order_by("-pk")[0]
+                context.update({"album": album})
             
             context.update({
                 "profile": profile,
                 "can_select": can_select,
                 "box_viewer": box_viewer,
-                "album": album,
             })
             return render(request, 'mypage/dashboard.html', context)
 
