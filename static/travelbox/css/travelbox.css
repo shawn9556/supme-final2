@@ -10,6 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ 
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -3029,34 +3030,37 @@ textarea.form-control-lg {
   opacity: 0.65;
 }
 
+
+
 .btn-primary {
   color: #fff;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+  background-color: #E2455A;
+  border-color: #E2455A;
+  
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #16a085;
-  border-color: #15967d;
+  background-color: #E2455A;
+  border-color: #E2455A;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
-  background-color: #16a085;
-  border-color: #15967d;
+  background-color: #E2455A;
+  border-color: #E2455A;
   box-shadow: 0 0 0 0.25rem rgba(60, 198, 171, 0.5);
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #15967d;
-  border-color: #148d75;
+  background-color: #E2455A;
+  border-color: #E2455A;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.25rem rgba(60, 198, 171, 0.5);
 }
 .btn-primary:disabled, .btn-primary.disabled {
   color: #fff;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+  background-color: #E2455A;
+  border-color: #E2455A;
 }
 
 .btn-secondary {
@@ -5579,7 +5583,7 @@ textarea.form-control-lg {
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: 1rem;
+  
 }
 
 .modal-footer {
@@ -11385,7 +11389,7 @@ html {
 @media (min-width: 992px) {
   #mainNav {
     padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    
     transition: padding-top 0.3s, padding-bottom 0.3s;
   }
   #mainNav .navbar-brand {
@@ -11406,7 +11410,7 @@ html {
 
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    
   }
   #mainNav.navbar-shrink .navbar-brand {
     font-size: 1.5em;
@@ -11431,8 +11435,9 @@ html {
 }
 
 .masthead {
-  padding-top: calc(6rem + 74px);
-  padding-bottom: 6rem;
+  padding-bottom: 0;
+  
+  
 }
 .masthead .masthead-heading {
   font-size: 2.75rem;
@@ -11446,10 +11451,7 @@ html {
 }
 
 @media (min-width: 992px) {
-  .masthead {
-    padding-top: calc(6rem + 104px);
-    padding-bottom: 6rem;
-  }
+
   .masthead .masthead-heading {
     font-size: 4rem;
     line-height: 3.5rem;
@@ -11472,7 +11474,8 @@ html {
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  background-color: #E2455A;
+
 }
 .portfolio .portfolio-item .portfolio-item-caption:hover {
   opacity: 1;

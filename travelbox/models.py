@@ -157,6 +157,7 @@ class Travel_box(models.Model):
     )
 
 
+
 class GetPic(models.Model):
      travel_box_id = models.CharField(max_length=32)
      travel_box = models.ForeignKey(Travel_box, name="box_id", on_delete=models.CASCADE, null=True, blank=True)

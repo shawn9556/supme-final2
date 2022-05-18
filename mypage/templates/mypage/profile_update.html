@@ -13,12 +13,17 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/static/landing/css/styles.css" rel="stylesheet" />
+    
+    <!-- profile card 관련 css -->
+    <link rel="stylesheet" href= "/static/survey/css/style.css">
+    <!-- Favicon -->
+    <link href="/static/home/img/favicon.png" rel="icon">
     <title>Profile Edit</title>
 </head>
 <body background="/static/landing/assets/img/space.jpg" >
     <body id="page-top"  >
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:orange;" id="sideNav">
+        <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:#E2455A;" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">SUPME</span>
                 <span class="d-none d-lg-block"><iframe src="https://giphy.com/embed/wPyDWwurn8XEWdR9ol" width="240"  frameBorder="0" class="giphy-embed img-fluid mx-auto mb-2" ></iframe></span>
@@ -37,29 +42,53 @@
             <!-- Profile-->
             <section class="resume-section" id="profile">
                 <div class="resume-section-content">
-                    <h2 class="mb-0">
-                        화성에서 온
-                        <span class="text-primary" style="color:orange;">{{user.username}}의 업데이트</span>
+                    <h2 class="mb-0" style="padding-left: 50px; padding-top: 30px;">
+                        화성에서 온<br>
+                        <span class="text-primary" style="color:#E2455A;">{{user.username}}의 업데이트</span>
                     </h2>
         
                     <br>
-                    <div class="profil-contents" >
-                        <form action="{% url 'mypage:update' %}" id="post-edit" method="post">
-                            {% csrf_token %} 
-                            <span class="subheading mb-5">이름: <input placeholder= '새로운 이름' type="text" name="name" value="{{ profile.name }}"></span><br>
-                            <span class="subheading mb-5">전화번호: <input placeholder="010-0000-0000" type="text" name="phone_number" value="{{ profile.phone_number }}"></span><br>
-                            <span class="subheading mb-5">이메일: <input placeholder="OOOO@supme.co.kr" type="email" name="email" value="{{ profile.email }}"></span><br>
-                            
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-primary me-md-2" type="submit" style="color:white; text-decoration:none;">수정 완료</button>
-                            </div>
 
-                        </form>
-                    
-                    </div>
+                    <div class="card text-center" style="margin-top:60px; opacity: 0.85;  padding-bottom: 50px;"   >
+
+                        <div class="profil-contents" >
+                            <form action="{% url 'mypage:update' %}" id="post-edit" method="post">
+                                {% csrf_token %} 
+                                <p style="font-size:20px; padding-top:20px; padding-bottom:30px;"> 정보를 모두 채워주세요 </p>
+                                <span class="subheading mb-5" style="color:black; padding-left: 38px; font-size: 20px;">이름 <input style="margin-top:10px;" placeholder= '새로운 이름' type="text" name="name" value="{{ profile.name }}"></span><br>
+                                <span class="subheading mb-5" style="color:black; font-size: 20px;">전화번호 <input style="margin-top:10px;" placeholder="010-1234-1234" type="text" name="phone_number" value="{{ profile.phone_number }}"></span><br>
+                                <span class="subheading mb-5" style="color:black; padding-left: 19px; font-size: 20px;">이메일 <input style="margin-top:10px;" placeholder="OOOO@supme.co.kr" type="email" name="email" value="{{ profile.email }}"></span><br>
+                                
+
+                                
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button class="btn  me-md-2 profile-card__button button--orange" type="submit" style="color:white; text-decoration:none; margin-top: 50px; margin-left: 40px; margin-right: 40px; ">수정 완료</button>
+                                </div>
+                                
+                            </form>
+                        
+                        </div>
+                    </div>    
                 </div>
             </section>
             <hr class="m-0" />
+
+            <div class="container-xxl testimonial my-6 py-1 bg-dark wow zoomIn" data-wow-delay="1s" style="opacity:0.9;">
+                <div class="container">
+                    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div class="col-md-4 d-flex align-items-center">
+                        </a>
+                        <span class="text-muted">&copy; 2022 SUPME</span>
+                    </div>
+                        <div >
+                                <a class="me-3" href="https://www.facebook.com/"><i class="fab fa-facebook-f" ></i></a>
+                                <a class="me-3" href="https://twitter.com/"><i class="fab fa-twitter" ></i></a>
+                                <a class="me-3" href="https://www.instagram.com/_supme.travelbox/?hl=ko"><i class="fab fa-instagram"  ></i></a>
+                                <a class="me-3" href="https://www.youtube.com/?gl=KR"><i class="fab fa-youtube" ></i></a>
+                    </footer>
+                </div>
+            </div>
+
             
             
         </div>
