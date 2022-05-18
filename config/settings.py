@@ -97,7 +97,7 @@ DATABASES = {
     #     "ENGINE": "django.db.backends.mysql",
     #     "NAME": "supme.test",
     #     "HOST": "supme-db.cyzbcvrthlkd.ap-northeast-2.rds.amazonaws.com",
-    #     "USERNAME": "supme",
+    #     "USER": "supme",
     #     "PASSWORD": "asLK1209"
     # }
 }
