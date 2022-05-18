@@ -37,7 +37,7 @@
               <div class="profile-card-ctr">
                 <form action="{% url 'survey:survey_q9' %}" method="post">
                   {% csrf_token %}
-                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="pepper" name="seasoning" value="pepper">후추</button>
+                  <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="pepper" name="seasoning" value="salt">소금</button>
                   <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="redpepper" name="seasoning" value="redpepper">고추장</button>
                   <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="soy" name="seasoning" value="soy">간장</button>
                   <button class="profile-card__button button--orange" type="radio" onclick="forceSubmit()" id="raw" name="seasoning" value="raw">날것으로 먹는다</button>

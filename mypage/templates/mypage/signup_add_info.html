@@ -56,11 +56,11 @@
                             <input style="margin-top:10px;" type="email" name="email" placeholder="이메일" {% if email %}value="{{ email }}"{% endif %}/><br>
                         </form>
                         {% csrf_token %}
-                        <div class = >
-                        <input style="margin-top:10px;"  type="submit" class="bbtn" />
-                        <form action="{% url 'mypage:logout' %}" method="post">
-                            <input style="margin-top:10px;" type="submit" value="로그아웃" class="bbtn" />
-                        </form>
+                            <div class = >
+                            <input style="margin-top:10px;"  type="submit" class="bbtn" />
+                            <form action="{% url 'mypage:logout' %}" method="post">
+                                <input style="margin-top:10px;" type="submit" value="로그아웃" class="bbtn" />
+                            </form>
                         </div>
 
 
