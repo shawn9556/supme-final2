@@ -21,6 +21,7 @@ from django.urls import path, include
 from django.shortcuts import redirect
 
 urlpatterns = [
+    path("", lambda x: redirect("/home/")),
     path('admin/', admin.site.urls),
     path('mypage/', include('mypage.urls')),
     path('survey/', include('survey.urls')),
