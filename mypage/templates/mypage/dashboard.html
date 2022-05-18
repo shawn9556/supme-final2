@@ -7,7 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Profile</title>
-        <link rel="icon" type="image/x-icon" href="/static/landing/assets/img/favicon.ico" />
+        <!-- Favicon -->
+        <link href="{% static 'home/img/favicon.png' %}" rel="icon">
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -21,7 +22,8 @@
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <script src="https://kit.fontawesome.com/a7bf9f3dfd.js" crossorigin="anonymous"></script>
-       
+        <!--외계인사진-->
+        <link rel="stylesheet" href="{% static 'survey/css/style.css' %}">
         <!-- 여행 일정 pick하기 -->
        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -60,10 +62,10 @@
     </head>
     <body id="page-top" background="/static/landing/assets/img/space.jpg" >
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:deeppink;" id="sideNav">
+        <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" style="background-color:#E2455A;" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">SUPME</span>
-                <span class="d-none d-lg-block"><iframe src="https://giphy.com/embed/wPyDWwurn8XEWdR9ol" width="240"  frameBorder="0" class="giphy-embed img-fluid mx-auto mb-2" ></iframe></span>
+                <span class="d-none d-lg-block" style="padding-right:10px;"><h1>SUPME</h1></span>
                 <!-- <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -72,7 +74,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#profile">Profile</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#gotravel">Go Travel</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#myalbum">My Album</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/login/">logout</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/mypage/login/">Logout</a></li>
                 </ul>
             </div>
         </nav>
@@ -81,21 +83,30 @@
             <!-- Profile-->
             <div class="resume-section" id="profile">
                 <div class="resume-section-content">
+
+                    <h2 class="mb-5" style="margin-top:50px; padding-bottom: 80px; margin-left: 20px; font-size:50px">My Profile </h2>
+
                     <!--profile card-->
-                    <div class="card text-center" style="margin-top:150px; opacity: 0.85;">
+                    <div class="card text-center" style="margin-top:50px; margin-left:10px; margin-right: 10px; opacity: 0.85;">
                         <div class="card-header">
                             <!-- 외계인 profile 사진 -->
-                            {% if profile.alien_type %}
+                            
                             <div class="profile-card__img">
-                                <img src="{{ profile.alien_type.url }}" width="100" style="border-radius: 50px;" ></img>
+                                {% if profile.alien_type %}
+                                <img src="{{ profile.alien_type.url }}" width="100p" style="border-radius: 50px;" ></img>
+                                {% endif %}
                             </div>
-                            {% endif %}
+                            
+                        
+
+
+                            
                             <h3 style="margin-top:20px;">
                                 화성에서온 
-                                <span class="text-primary">{{ user.username}}</span>
+                                <span style="color:#E2455A; font-weight: 600;">{{ user.username}}</span>
                                 님!
                             </h3><br>
-                            <h4 >SUPME 의 <span class="text-primary">{{profile.id}}</span>번째 탑승객입니다. </h4>
+                            <p style="font-size:16px" >SUPME 의 <span style="color:#E2455A; font-weight: 600;">{{profile.id}}</span>번째 탑승객입니다. </p>
                         </div>
                         <div class="card-body">
                             <div class="profil-contents">
@@ -110,7 +121,7 @@
                                 <div class="profile-card-ctr d-grid gap-2 d-md-flex justify-content-md-end">
                                     <form action="{% url 'mypage:update' %}" method="get">
                                         <button class="profile-card__button button--orange" type="submit" id="updatebutton" name="update" value="update">
-                                            <p style="color:white; text-decoration:none; margin: 0px;">정보<br> 변경</p>
+                                            <p style="color:white; text-decoration:none; margin: 0px;">정보 변경</p>
                                         </button>
                                     </form>
                                 </div>
@@ -122,8 +133,8 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <section class="mother">
                                     <div>
-                                        <button style="border-radius: 15px;" class="collapsed btn btn-primary me-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            <a style="font-size:20px; color:whitesmoke;">{{ profile.alien_name}} story</a>
+                                        <button style="border-radius: 15px; border:0;" class="profile-card__button button--orange collapsed btn btn-primary me-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            <a style="font-family: sans-serif; font-size:16px; color:whitesmoke;">{{ profile.alien_name}} story</a>
                                         </button>  
                                     </div> 
                                 </section>
@@ -150,7 +161,7 @@
             <!-- GO Travel-->
             <section class="resume-section" id="gotravel">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Go Travel </h2>
+                    <h2 class="mb-5" style="margin-top:100px; margin-left: 20px; font-size:50px">Go Travel </h2>
 
 
                     <div class="card text-center" style="margin-top:60px; opacity: 0.85;"   >
@@ -175,7 +186,7 @@
                             color: lightgrey;
                             }
                             #progressbar .active {
-                                color: deeppink;
+                                color: #E2455A;
                                 }
 
                             #progressbar li {
@@ -234,7 +245,7 @@
 
                             /*Color number of the step and the connector before it*/
                             #progressbar li.active:before, #progressbar li.active:after {
-                            background: deeppink;
+                            background: #E2455A;
                             }
 
 
@@ -247,76 +258,107 @@
                             <ul id="progressbar" >
                                 <li name="preparing" {% if preparing %}class="active"{% endif %} id="preparing"><strong>여행 준비중</strong></li>
                                 <a {% if prepared %}href="{% url 'travelbox:travelbox' box_viewer.id %}" {% endif %}><li name="prepared" {% if prepared %} class="active" {% endif %} id="prepared"><strong>준비 완료</strong></li></a>
-                                <li name="on_travel" {% if on_travel %}class="active"{% endif %} id="on_travel"><strong>여행 중</strong></li>
+                                <a {% if on_travel %}href="{% url 'travelbox:travelbox' box_viewer.id %}" {% endif %}><li name="on_travel" {% if on_travel %}class="active"{% endif %} id="on_travel"><strong>여행 중</strong></li></a>
                                 <li name="finished" {% if finished %}class="active"{% endif %} id="finished"><strong>여행 완료</strong></li>
                             </ul>
                         </div>
 
                         <div>
                             <p style="font-size:16px; color:grey; padding-top:10px; padding-bottom:30px; margin-top:20px; " >
-                                놀라게 할 여행이 14일 뒤 오픈되요.<br> 설레일 시간이 얼마남지 않았네요!
-                                
+                                {% if preparing %}놀라게 할 여행이 14일 뒤 오픈되요.<br> 설레일 시간이 얼마남지 않았네요!{% endif %}
+                                {% if prepared %}여행 준비가 끝났어요. <br> '준비 완료' 버튼을 누르고 여정을 확인하세요.{% endif %}
+                                {% if on_travel %}더 재미있는 여행 <br> '여행중' 버튼을 누르고 미션을 수행하세요! {% endif %}
+                                {% if finished %}새로운 여행을 떠나보세요!{% endif %}
                             </p>
                         </div>
 
                     </div>
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5" style="margin-top:80px;">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">OPTION1-서프미 부탁해</h3>
-                            <div class="subheading mb-3">서프라이즈한 여행을 가볼래!</div>
-                            <p>Go 버튼을 누르고 서프미에게 알림을 보내주세요 </p>
 
-                             <!-- 여행 일정 정하기  -->
-                             <form action="{% url 'mypage:select_travel' %}" method="post" class="my-3">
-                                {% csrf_token %}
-                                <div>
-                                    <label for='people' class="type-label text-primary">인원수&emsp;:&emsp;</label>
-                                    <input {% if not user.is_authenticated %}disabled{% endif %} class="input_number" pattern="\d*" placeholder="인원 수" oninput="maxLengthCheck(this)" style="margin-left: 18px;" type="number"  min="1" max="2" default="1" name="people" id="people" rows="1">
-                                    <script>
-                                        function maxLengthCheck(Object) {
-                                            if (object.value.length > object.maxLength) {
-                                                object.value = object.value.slice(0, object.maxLength)
+                    <div class="card text-center" style="margin-top:60px; opacity: 0.85;"   >
+
+
+                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5" style="margin-top:80px;">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-0" style="color:#E2455A; font-weight:900; ">서프미 부탁해</h3>
+                                <div class="subheading mb-3" style="color:black; font-size: 20px; padding-top: 20px;">서프라이즈한 여행을 가볼래!</div>
+                                <p style="color:black;">선택 버튼을 누르고 서프미에게 알림을 보내주세요 </p>
+
+                                <!-- 여행 일정 정하기  -->
+                                <form action="{% url 'mypage:select_travel' %}" method="post" class="my-3">
+                                    {% csrf_token %}
+                                    <div>
+
+                                        <!-- input 빈칸 박스 css -->
+                                    <style>
+                                        .input_number {
+                                            width: 30%;
+                                            border-radius: 5px;
+                                            border-width: 1px;
+                                            opacity: 0.8;
+                                            padding-left: 10px;
                                             }
-                                        }
-                                    </script>
-                                </div>
-                                <div>
-                                    <label for='start_date' class="type-label text-primary">여행 일정&emsp;:&emsp;</label>
-                                    <input {% if not user.is_authenticated %}disabled{% endif %} class="input_number" type="text" name="daterange" id="start_date">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <h3 class="mb-0">OPTION2-서프미 잠깐만</h3>
-                                    <div class="subheading mb-3">바꾸고싶은게 생겼어 !</div>
-                                    <p>마누라, 자식 빼고 다 바꿔</p>
-                                    <!-- 여행 목적 선택 -->
-                                    <label for='travel_purpose' class="type-label text-primary">여행 목적</label>
-                                    <input {% if not user.is_authenticated %}disabled{% endif %} type="search" name="travel_purpose" id="travel_purpose" list="purpose-list">
-                                    <datalist id="purpose-list">
-                                        <option value="힐링"></option>
-                                        <option value="아웃도어"></option>
-                                        <option value="맛집투어"></option>
-                                        <option value="자연감상"></option>
-                                    </datalist>
-                                    <br>
-                                    <!-- 출발지 선택 -->
-                                    <label for='place_start' class="type-label text-primary">출발지</label>
-                                    <input {% if not user.is_authenticated %} disabled {% endif %} type="search" name="place_start" id="place_start" list="start-list">
-                                    <datalist id="start-list">
-                                        <option value="강동구">강동구</option>
-                                        <option value="강남구">강남구</option>
-                                        <option value="강북구">강북구</option>
-                                        <option value="강서구">강서구</option>
-                                    </datalist>
-                                    <!-- go button, progress button-->
-                                    <div class="button-primary">
-                                        <input type="submit" value="선택" {% if not can_select %}disabled{% endif %} class="btn btn-primary">
+                                        .prpo{
+                                            width: 30%;
+                                            border-radius: 5px;
+                                            border-width: 1px;
+                                            opacity: 0.8;
+                                        }    
+                                   
+                                    </style>
+
+                                        <label for='people' class="type-label" style="color:black; margin-left: 16px; margin-top: 40px;">인원수</label>
+                                        <input {% if not user.is_authenticated %}disabled{% endif %} class="input_number" pattern="\d*" placeholder="최대 4인 입니다" oninput="maxLengthCheck(this)" style=" padding-left: 10px; padding-right: 20px;" type="number"  min="1" max="4" default="1" name="people" id="people" rows="1">
+                                        <script>
+                                            function maxLengthCheck(Object) {
+                                                if (object.value.length > object.maxLength) {
+                                                    object.value = object.value.slice(0, object.maxLength)
+                                                }
+                                            }
+                                        </script>
+                                        
+                                        
                                     </div>
-                                </div>
-                            </form>
-                            
+                                    <div>
+                                        <label for='start_date' class="type-label" style="color:black; margin-top: 20px;">여행 일정</label>
+                                        <input {% if not user.is_authenticated %}disabled{% endif %} class="input_number" type="text" name="daterange" id="start_date" >
+                                    </div>
+                                    
+                                        <!-- 여행 목적 선택 -->
+                                        <label for='travel_purpose' class="type-label" style="color:black; margin-top: 20px;">여행 목적</label>
+                                        <input {% if not user.is_authenticated %}disabled{% endif %} type="search" name="travel_purpose" id="travel_purpose" list="purpose-list" class="prpo">
+                                        <datalist id="purpose-list">
+                                            <option value="힐링"></option>
+                                            <option value="아웃도어"></option>
+                                            <option value="맛집투어"></option>
+                                            <option value="자연감상"></option>
+                                        </datalist>
+                                        <br>
+                                        <!-- 출발지 선택 -->
+                                        <label for='place_start' class="type-label" style="color:black;margin-top: 20px; margin-left: 16px;">출발지</label>
+                                        <input {% if not user.is_authenticated %} disabled {% endif %} type="search" name="place_start" id="place_start" list="start-list" class="prpo">
+                                        <datalist id="start-list">
+                                            <option value="강동구">강동구</option>
+                                            <option value="강남구">강남구</option>
+                                            <option value="강북구">강북구</option>
+                                            <option value="강서구">강서구</option>
+                                            <option value="관악구">관악구</option>
+                                            <option value="송파구">송파구</option>
+                                            <option value="양천구">양천구</option>
+                                            <option value="용산구">용산구</option>
+                                            <option value="금천구">금천구</option>
+                                            <option value="노원구">노원구</option>
+                                        </datalist>
+                                        <!-- go button, progress button-->
+                                        <div class="button-primary">
+                                            <input type="submit" value="선택" {% if not can_select %}disabled{% endif %} class="btn btn-primary" style="margin-top:20px; margin-right:20px; border:0; background-color: orange; ">
+                                        </div>
+                                    
+                                </form>
+                                
+                            </div>
                         </div>
-                    </div>
+                    </div>    
                 </div>
             </section>
             <hr class="m-0" />
@@ -324,7 +366,7 @@
             <!-- Album-->
             <section class="resume-section" id="myalbum">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">My Album </h2>
+                    <h2 class="mb-5"  style="margin-top:100px; margin-left: 20px; font-size:50px">My Album </h2>
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                         <div class="carousel-indicators">
                           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -334,17 +376,17 @@
                         <div class="carousel-inner">
                           <div class="carousel-item active" >
                             {% if album.user_image_1 %}
-                            <img src="/media/{{ album.user_image_1 }}" class="d-block w-100" alt="...">
+                            <img src="/media/{{ album.user_image_1 }}" class="d-block" style="width: 80%; padding-left: 25%;" alt="...">
                             {% endif %}
                           </div>
                           <div class="carousel-item">
                             {% if album.user_image_2 %}
-                            <img src="/media/{{ album.user_image_2 }}" class="d-block w-100" alt="...">
+                            <img src="/media/{{ album.user_image_2 }}" class="d-block" style="width: 80%; padding-left: 25%;" alt="...">
                             {% endif %}
                           </div>
                           <div class="carousel-item">
                             {% if album.user_image_3 %}
-                            <img src="/media/{{ album.user_image_3 }}" class="d-block w-100" alt="...">
+                            <img src="/media/{{ album.user_image_3 }}" class="d-block" style="width: 80%; padding-left: 25%;" alt="...">
                             {% endif %}
                           </div>
                         </div>
