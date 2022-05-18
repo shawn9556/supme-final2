@@ -8,13 +8,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/static/landing/assets/img/favicon.ico" />
+    
     <title>회원정보 입력</title>
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="/static/home/img/favicon.png" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
 
    
     <!-- Icon Font Stylesheet -->
@@ -45,28 +45,30 @@
                             <input style="margin-top:10px;" type="text" name="phone_number" placeholder="전화번호"/><br>
 
                             
-                            <p style="font-size:20px; color:white; padding-top: 20px; ">성별을 선택해 주세요</p>
-                            <div class="d-flex justify-content-between" style="padding:20px">
+                            <p style="font-size:18px; color:white; padding-top: 30px; ">성별을 선택해 주세요</p>
+                            <div class="d-flex justify-content-center" style="padding:20px">
                                 <input type="radio" id="male" name="gender" value="M" {% if M %}checked{% endif %} />
-                                <label for="male" style="font-size:16px; color:white;">남성</label>
+                                <label for="male" style="font-size:16px; color:white;">&nbsp;남 성&nbsp;&nbsp;</label>
                                 <input type="radio" id="female" name="gender" value="W" {% if W %}checked{% endif %}/>
-                                <label for="female" style="font-size:16px; color:white;">여성</label><br>
+                                <label for="female" style="font-size:16px; color:white;">&nbsp;여 성</label><br>
                             </div>
                             <input style="margin-top:10px;" type="text" name="age" placeholder="연령대" {% if age %}value="{{ age }}"{% endif %}/><br>
                             <input style="margin-top:10px;" type="email" name="email" placeholder="이메일" {% if email %}value="{{ email }}"{% endif %}/><br>
-                            <input style="margin-top:10px;"  type="submit" class="bbtn" />
                         </form>
+                        {% csrf_token %}
+                        <div class = >
+                        <input style="margin-top:10px;"  type="submit" class="bbtn" />
                         <form action="{% url 'mypage:logout' %}" method="post">
-                            {% csrf_token %}
                             <input style="margin-top:10px;" type="submit" value="로그아웃" class="bbtn" />
                         </form>
+                        </div>
 
 
                         <!-- 제출/로그아웃 style css-->
                         <style>
                             .bbtn {
                                 padding:5px 15px; 
-                                background-color:orange;
+                                background-color:#E2455A;
                                 color:white; 
                                 border:0 none;
                                 cursor:pointer;

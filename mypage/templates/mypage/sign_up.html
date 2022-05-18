@@ -2,10 +2,72 @@
 {% block title %}sign Up{% endblock %}
 {% block active_sign-up %}active{% endblock %}
 {% block main %}
+{% load socialaccount %}
+<style>
+
+    .social-icon-kakao {
+        border-radius: 50%;
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+        text-align: center;
+        background-color: #03c75b00;
+    }
+    .social-icon {
+        border-radius: 50%;
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+        text-align: center;
+        background-color: #03c75b00;
+    }
+
+    .css-signup {
+        margin: 35px 0px 15px;
+        color: #ffffff; 
+        font-size: 21px;
+        font-weight: bold;
+        line-height: 1.33;
+        text-align: center;
+        text-decoration: underline;
+
+    }
+    .css-font {
+        margin: 35px 0px 15px;
+        color: #ffffff; 
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 1.33;
+        text-align: center;
+    }
+    .btn {
+        font-size: 80%;
+        border-radius: 0rem;
+        font-weight: bold;
+        padding: 1rem;
+        transition: all 0.2s;
+        border-radius: 15px;
+    }
+    .btn-naver {
+        color: white;
+        background-color: #03c75a;
+        border-color:#03c75a;
+    }
+    .btn-kakao {
+        color: white;
+        background-color: #FEE500;
+        border-color: #FEE500;
+    }
+    .btn-google {
+        color: white;
+        background-color: #ea4335;
+        border-color: #ea4335;
+    }
+</style>
 <main class="flex-shrink-0">
     <!-- Page content-->
     <section class="py-5">
-        <div class="container px-5">
+        <div class="container">
             <!-- Contact form-->
             <div class="bg-light rounded-3 py-5 px-4 px-md-5">
                 <div class="text-center mb-5">
@@ -33,6 +95,19 @@
                             </div>
                             <!-- Submit Button-->
                             <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Sign Up</button></div>
+                        </form>
+                    </div>
+                    <div class="css-font">SNS계정으로 간편하게 회원가입</div>
+
+                    <div style = "text-align: center; display: flex; justify-content: center;">
+                        <form action="{% provider_login_url 'kakao' %}" method="post" style="width:100px" >
+                            {% csrf_token %}
+                            <button style= "border : 0px solid rgba(255, 0, 0, 0);background: rgba(255, 0, 0, 0);"><img src="/static/home/img/log_kakao.png/" class = "social-icon-kakao" alt="social_kakao"></button>
+                        </form>
+
+                        <form action="{% provider_login_url 'naver' %}" method="post" style="width:100px">
+                            {% csrf_token %}
+                            <button style= "border : 0px solid rgba(255, 0, 0, 0);background: rgba(255, 0, 0, 0); "><img src="/static/home/img/log_naver.png/" class = "social-icon" alt="social_naver"></button>
                         </form>
                     </div>
 
