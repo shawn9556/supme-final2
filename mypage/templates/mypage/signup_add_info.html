@@ -56,9 +56,9 @@
                             <input style="margin-top:10px;" type="email" name="email" placeholder="이메일" {% if email %}value="{{ email }}"{% endif %}/><br>
                             <input style="margin-top:10px;"  type="submit" class="bbtn" />
                         </form>
-                        {% csrf_token %}
                             <div class = >
                             <form action="{% url 'mypage:logout' %}" method="post">
+                                {% csrf_token %}
                                 <input style="margin-top:10px;" type="submit" value="로그아웃" class="bbtn" />
                             </form>
                         </div>
