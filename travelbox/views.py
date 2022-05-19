@@ -113,9 +113,9 @@ def create(request, selection_id):
         mk_box.sightseeing_2 = request.POST.get('sightseeing_2')      
         mk_box.sightseeing_3 = request.POST.get('sightseeing_3')      
         
-        mk_box.addr_sightseeing_1 = request.POST.get('sightseeing_1')      
-        mk_box.addr_sightseeing_2 = request.POST.get('sightseeing_2')      
-        mk_box.addr_sightseeing_3 = request.POST.get('sightseeing_3')      
+        mk_box.addr_sightseeing_1 = request.POST.get('addr_sightseeing_1')      
+        mk_box.addr_sightseeing_2 = request.POST.get('addr_sightseeing_2')      
+        mk_box.addr_sightseeing_3 = request.POST.get('addr_sightseeing_3')      
         
 
         mk_box.traffic = request.POST.get('traffic')
