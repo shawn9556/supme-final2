@@ -184,7 +184,7 @@ def dashboard(request):
             })
             return render(request, 'mypage/dashboard.html', context)
 
-    return redirect("mypage:home")
+    return redirect("home:home")
     
 
 def select_travel(request):
