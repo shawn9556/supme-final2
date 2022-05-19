@@ -118,10 +118,10 @@
                                 </div>
                                     
                                 <!-- update button -->
-                                <div class="profile-card-ctr d-grid gap-2 d-md-flex justify-content-md-end">
+                                <div class="profile-card-ctr d-grid gap-2 d-md-flex justify-content-center">
                                     <form action="{% url 'mypage:update' %}" method="get">
-                                        <button class="profile-card__button button--orange" type="submit" id="updatebutton" name="update" value="update">
-                                            <p style="color:white; text-decoration:none; margin: 0px;">정보 변경</p>
+                                        <button class="profile-card__button button--orange me-md-0"  type="submit" id="updatebutton" name="update" value="update" style="border-radius: 15px; text-decoration:none; margin: 0px; margin-top:20px;">
+                                            정보 변경
                                         </button>
                                     </form>
                                 </div>
@@ -133,7 +133,7 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <section class="mother">
                                     <div>
-                                        <button style="border-radius: 15px; border:0;" class="profile-card__button button--orange collapsed btn btn-primary me-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <button style="border-radius: 15px; border:0; margin-bottom: 30px;" class="profile-card__button button--orange collapsed btn btn-primary me-md-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                             <a style="font-family: sans-serif; font-size:16px; color:whitesmoke;">{{ profile.alien_name}} story</a>
                                         </button>  
                                     </div> 
@@ -167,7 +167,7 @@
                     <div class="card text-center" style="margin-top:60px; opacity: 0.85;"   >
                         <div class="card-header">
                             <p style="font-size: 22px; margin-top:40px; padding-bottom:20px; font-weight: 800;">
-                                당신만의 로컬 여행 왕복선을 준비하고 있어요
+                                당신만의 로컬 여행 왕복선을 <br> 준비하고 있어요
                             </p>
                         </div>
 
@@ -265,7 +265,7 @@
 
                         <div>
                             <p style="font-size:16px; color:grey; padding-top:10px; padding-bottom:30px; margin-top:20px; " >
-                                {% if preparing %}놀라게 할 여행이 14일 뒤 오픈되요.<br> 설레일 시간이 얼마남지 않았네요!{% endif %}
+                                {% if preparing %}놀라게 할 여행이 3일 뒤 오픈되요.<br> 설레일 시간이 얼마남지 않았네요!{% endif %}
                                 {% if prepared %}여행 준비가 끝났어요. <br> '준비 완료' 버튼을 누르고 여정을 확인하세요.{% endif %}
                                 {% if on_travel %}더 재미있는 여행 <br> '여행중' 버튼을 누르고 미션을 수행하세요! {% endif %}
                                 {% if finished %}새로운 여행을 떠나보세요!{% endif %}
