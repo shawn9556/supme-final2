@@ -123,8 +123,8 @@ def signup_add_info_view(request):
         user_gender_list = SurveyQuestion.objects.filter(survey_uid=survey_uid)
         if user_gender_list.exists():
             try:
-                user_gender_list.order_by("-pk")[0]
-                user_gender = user_gender_list.question2
+                user_gender_list2=user_gender_list.order_by("-pk")[0]
+                user_gender = user_gender_list2.question2
             except OperationalError:
                 pass
 
