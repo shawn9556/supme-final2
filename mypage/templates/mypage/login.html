@@ -109,12 +109,12 @@
                         <div style = "text-align: center; display: flex; justify-content: center;">
                             <form action="{% provider_login_url 'kakao' %}" method="post" style="width:100px" >
                                 {% csrf_token %}
-                                <button style= "border : 0px solid rgba(255, 0, 0, 0);background: rgba(255, 0, 0, 0);"><img src="/static/home/img/log_kakao.png/" class = "social-icon-kakao" alt="social_kakao"></button>
+                                <button style= "border : 0px solid rgba(255, 0, 0, 0);background: rgba(255, 0, 0, 0);"><img src="/static/home/img/log_kakao.png" class = "social-icon-kakao" alt="social_kakao"></button>
                             </form>
 
                             <form action="{% provider_login_url 'naver' %}" method="post" style="width:100px">
                                 {% csrf_token %}
-                                <button style= "border : 0px solid rgba(255, 0, 0, 0);background: rgba(255, 0, 0, 0); "><img src="/static/home/img/log_naver.png/" class = "social-icon" alt="social_naver"></button>
+                                <button style= "border : 0px solid rgba(255, 0, 0, 0);background: rgba(255, 0, 0, 0); "><img src="/static/home/img/log_naver.png" class = "social-icon" alt="social_naver"></button>
                             </form>
                         </div>
                         <!-- <input class="btn btn-lg btn-naver" type="submit" value="네이버">
