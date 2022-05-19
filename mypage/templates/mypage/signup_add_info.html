@@ -54,10 +54,10 @@
                             </div>
                             <input style="margin-top:10px;" type="text" name="age" placeholder="연령대" {% if age %}value="{{ age }}"{% endif %}/><br>
                             <input style="margin-top:10px;" type="email" name="email" placeholder="이메일" {% if email %}value="{{ email }}"{% endif %}/><br>
+                            <input style="margin-top:10px;"  type="submit" class="bbtn" />
                         </form>
                         {% csrf_token %}
                             <div class = >
-                            <input style="margin-top:10px;"  type="submit" class="bbtn" />
                             <form action="{% url 'mypage:logout' %}" method="post">
                                 <input style="margin-top:10px;" type="submit" value="로그아웃" class="bbtn" />
                             </form>
