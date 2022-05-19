@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-q9gao+*8r5_tirqi0-+2@=r3fe6k@(jif+8rn(@05^_ppqx9on'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["www.supme.co.kr"]
 
 
 # Application definition
@@ -89,19 +89,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "supme.test",
+        "HOST": "supme-db.cyzbcvrthlkd.ap-northeast-2.rds.amazonaws.com",
+        "USER": "supme",
+        "PASSWORD": "asLK1209"
     }
-    # "default": {
-    #     "ENGINE": "django.db.backends.mysql",
-    #     "NAME": "supme.test",
-    #     "HOST": "supme-db.cyzbcvrthlkd.ap-northeast-2.rds.amazonaws.com",
-    #     "USER": "supme",
-    #     "PASSWORD": "asLK1209"
-    # }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -140,7 +139,8 @@ USE_TZ = False
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
- ]
+]
+STATIC_ROOT="./static_root/"
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = "_media/"
